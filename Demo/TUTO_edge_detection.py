@@ -65,13 +65,15 @@ def draw_approx_hull_polygon(img, cnts):
 
 
 def run():
-    image = cv2.imread('Demo/test_edge_detection.jpg')  # a black objects on white image is better
+    image = cv2.imread('test_edge_detection.jpg')  # a black objects on white image is better
 
     # gray = cv2.cvtColor(image.copy(), cv2.COLOR_BGR2GRAY)
     # ret, thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
     thresh = cv2.Canny(image, 128, 256)
 
-    thresh, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # thresh, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
     # print(hierarchy, ":hierarchy")
     """
     [[[-1 -1 -1 -1]]] :hierarchy  # cv2.Canny()
